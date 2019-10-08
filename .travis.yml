@@ -1,8 +1,3 @@
 sudo: false
 language: java
-deploy:
-    provider: script
-    script: "mvn clean package -DskipTests=true"    
-    skip_cleanup: true
-    on:
-      tags: true
+script: "mvn clean package -DskipTests=true"
