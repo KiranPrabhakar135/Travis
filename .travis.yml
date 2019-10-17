@@ -14,7 +14,7 @@ before_install:
 deploy:
   provider: script
   skip_cleanup: true
-  script: rsync -r -e "ssh -o StrictHostKeyChecking=no" --delete-after --quiet $TRAVIS_BUILD_DIR root@ec2-34-202-237-229.compute-1.amazonaws.com:home/deploy 2>/dev/null
+  script: rsync -r -e "ssh -t -a -x -o StrictHostKeyChecking=no" --delete-after --quiet $TRAVIS_BUILD_DIR root@ec2-34-202-237-229.compute-1.amazonaws.com:home/deploy
 jdk:
 - openjdk8
 script: "./mvnw clean install"
