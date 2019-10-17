@@ -1,7 +1,12 @@
 language: java
 sudo: true
+on:
+    branch: master
 before_install:
   - chmod +x mvnw
 jdk:
   - openjdk8
 script: ./mvnw clean install
+after_success:
+    # write script to push to the AWS server
+    
