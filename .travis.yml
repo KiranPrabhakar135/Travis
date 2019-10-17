@@ -7,8 +7,8 @@ before_install:
 - eval "$(ssh-agent -s)"
 - pwd
 - ls
-- chmod 600 /tmp/deploy
-- ssh-add /tmp/deploy
+- chmod 600 anuj-ubuntu-keypair.pem
+- ssh-add anuj-ubuntu-keypair.pem
 - chmod +x mvnw
 deploy:
   provider: script
