@@ -1,12 +1,12 @@
 language: java
 sudo: true
-on:
-    branch: master
+true:
+  branch: master
 before_install:
-  - chmod +x mvnw
+- openssl aes-256-cbc -K $encrypted_a9de9b3dc3ed_key -iv $encrypted_a9de9b3dc3ed_iv
+  -in anuj-ubuntu-keypair.pem.enc -out C:\\Ubuntu\\anuj-ubuntu-keypair.pem -d
+- chmod +x mvnw
 jdk:
-  - openjdk8
-script: ./mvnw clean install
-after_success:
-    # write script to push to the AWS server
-    
+- openjdk8
+script: "./mvnw clean install"
+after_success: 
