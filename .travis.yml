@@ -14,7 +14,7 @@ before_install:
 deploy:
   provider: script
   skip_cleanup: true
-  script: scp -i anuj-ubuntu-keypair.pem -r $TRAVIS_BUILD_DIR root@ec2-34-202-237-229.compute-1.amazonaws.com:home/deploy
+  script: scp -i anuj-ubuntu-keypair.pem  -o StrictHostKeyChecking=no -r $TRAVIS_BUILD_DIR root@ec2-34-202-237-229.compute-1.amazonaws.com:home/deploy
 jdk:
 - openjdk8
 script: "./mvnw clean install"
