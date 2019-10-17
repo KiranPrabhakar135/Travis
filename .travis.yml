@@ -4,7 +4,7 @@ true:
   branch: master
 before_install:
 - openssl aes-256-cbc -K $encrypted_a9de9b3dc3ed_key -iv $encrypted_a9de9b3dc3ed_iv
-  -in anuj-ubuntu-keypair.pem.enc -out /tmp/deploy/anuj-ubuntu-keypair -d
+  -in anuj-ubuntu-keypair.pem.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy
 - ssh-add /tmp/deploy
