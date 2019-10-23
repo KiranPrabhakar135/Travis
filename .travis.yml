@@ -21,10 +21,10 @@ deploy:
 deploy:
   provider: s3
   skip_cleanup: true
-  access_key_id: "AKIAIVINMTSHWI7TWGBQ"
+  access_key_id: AKIAIVINMTSHWI7TWGBQ
   secret_access_key: 
     secure: l9X4LP2PMmwWUzmfpkq/QfrCP2WxiZ55MI45H991vuRjj9QmMUz4sEnXj0DAnANiLACsP4KpqvzIJbd7uWnMZp+wJvPKN3H0cbjPe/g3MAYNp6dtidMGhfRFnNzUQtzEcwKyPdgw929Dy1a1DaOs02kfxvCIQn8xMvMEbSIySbjVlCzFmPUIkv57179tDy4x9xXWtCJDvs37bY1YaDuJMWU9is/Wnt3WCyKVG+olhRalfs+5SNbGYe4SmA2U7lPY8np7E7wqB27FB/iiC69ff1vNOGXSxHVEtXgYiNitN4zX5fU7AJ2sBqLoIjjSTQRO5akq1GZCt98L2hHjRtvz+g3s3/Zmx/ZcBiv7ELlWBVxRUrnLpG75+BB4mhy9Kjkn+9+nvhHSq3QloBNu4HH9wnTvMw0jGAb+WMjhiXjfNPQlf9Hd9iOBsMaZyOB79THs+O0+PLDYl0Nb8y2XM4XETHGPR00p2S9aE+ntErcwFh9xrTm7P+hw4AiapEYhTN5uuLVLh8BddD/YdMzjrmOUyRQVBjJVtJOuhtfp88oAvQXCAjtIjGHv5H3lBtsLXabX5MexZwSQX4XaSGbtfh0jjMjyS5lBRy24J4k8PczNcL7rRBXcwXvwvsHsYlnx/g9pbyQIVCXKEXPc8i6UN6LT6z1CY+NjH/7onToQbq581uY=
-  bucket: "ods-app-builds"
+  bucket: ods-app-builds
   
 after_deploy:
   script: echo "Deployment complete"
