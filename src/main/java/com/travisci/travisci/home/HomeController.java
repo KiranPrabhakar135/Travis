@@ -7,6 +7,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class HomeController {
     @RequestMapping("/home")
     public String sayHi(){
-        return "Demo of Travis CI Deployment 2";
+        return "Welcome to Travis CI Demo";
     }
 }
