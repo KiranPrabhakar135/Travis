@@ -15,16 +15,9 @@ before_install:
 - ssh-add anuj-ubuntu-keypair.pem
 - chmod +x mvnw
 deploy:
--provider: script
- skip_cleanup: true
- script: cd target && sudo scp -i ../anuj-ubuntu-keypair.pem  -o StrictHostKeyChecking=no -r *.jar ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com:/home/Travis && ssh -n -f -i ../anuj-ubuntu-keypair.pem -o StrictHostKeyChecking=no ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com 'cd /home/Travis && nohup java -jar *.jar > /dev/null 2>&1 &'
--provider: s3
- skip_cleanup: true
- access_key_id: AKIAJOEUJHKNA3MPUZZA
- secret_access_key: 
-   secure: EXeYJzTUJwlrn1ryil7z//iaDEVYZ4tzQ+s4JVv0c5qkGLMUQbRd1Fx4jMhbYnhvVX5VItdGAzGQ0dEilAVrMOvk7MAdk+dy6+b8CCn+JxPdoT67TivQxxbzuEEtf/t9HhwnSJNvAUpmsq8Op5VQSaCW4YjIYH41DdvzPPNecBj4h9+SMOPacUEIl6ZB7+tKSi/1lXAI+JsSVHehNHPOoTxo10mgBPUahCjTSvRrUPIl1/HNCagjtYcAB31YuVrfwvfNJ+3GMglzb56H/djLMhyufeUjvfMeXfYRQCgjzZKwekAerlnHug12y4tTiiRdILUrKVEdp35WM9JfvTlRuWx9TJ/hu73bqCuhozK2c6N5H/LbxjprJWl+5RKULVUwZQWId60MSROs82pN7OteF+DhSabjeEQj9gYpQy9rq7psoWD7w7m06+eTE+lE6KAbbnaVCFUsJNpd7jAiaSd/q9ICC+rJfUTAZKxVEWpHvYyRG68Psgtr7hRnGWqZwrs8LucIrq60dV728FpFZEERuqagEmipy9RoUZNSav3Srx4vkRHaV7a5Ek/O27rr4NwECMl1UTE0tXITpMDIIFptGvuRL5A7TU2oerbKq9JlYPGAdrBkmUpSThP7Rkb7v1mVDH09pQSFBwkZ4WTTMR+fH4W4vuBTV4gPKZSshYdMALE=
- bucket: ods-app-builds
- local_dir: target 
+ provider: script
+  skip_cleanup: true
+  script: cd target && sudo scp -i ../anuj-ubuntu-keypair.pem  -o StrictHostKeyChecking=no -r *.jar ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com:/home/Travis && ssh -n -f -i ../anuj-ubuntu-keypair.pem -o StrictHostKeyChecking=no ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com 'cd /home/Travis && nohup java -jar *.jar > /dev/null 2>&1 &'
 
 script: "./mvnw clean install"
 after_success: 
