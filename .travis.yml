@@ -17,7 +17,7 @@ before_install:
 deploy:
 - provider: script
   skip_cleanup: true
-  script: cd target && sudo scp -i ../anuj-ubuntu-keypair.pem  -o StrictHostKeyChecking=no -r *.jar ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com:/home/Travis && ssh -n -f -i ../anuj-ubuntu-keypair.pem -o StrictHostKeyChecking=no ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com 'lsof -t -i:8089 > test_kill.txt && sudo kill -9 \$(lsof -t -i:8089)' && ssh -n -f -i ../anuj-ubuntu-keypair.pem -o StrictHostKeyChecking=no ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com 'cd /home/Travis && nohup java -jar *.jar > /dev/null 2>&1 &'
+  script: cd target && sudo scp -i ../anuj-ubuntu-keypair.pem  -o StrictHostKeyChecking=no -r *.jar ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com:/home/Travis && ssh -n -f -i ../anuj-ubuntu-keypair.pem -o StrictHostKeyChecking=no ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com 'cd /home/Travis && lsof -t -i:8089 > test_kill.txt && sudo kill -9 \$(lsof -t -i:8089)' && ssh -n -f -i ../anuj-ubuntu-keypair.pem -o StrictHostKeyChecking=no ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com 'cd /home/Travis && nohup java -jar *.jar > /dev/null 2>&1 &'
 - provider: s3
   skip_cleanup: true
   access_key_id: AKIAJOEUJHKNA3MPUZZA
