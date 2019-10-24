@@ -17,7 +17,7 @@ before_install:
 deploy:
 - provider: script
   skip_cleanup: true
-  script: cd target && sudo scp -i ../anuj-ubuntu-keypair.pem  -o StrictHostKeyChecking=no -r *.jar ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com:/home/Travis && ssh -n -f -i ../anuj-ubuntu-keypair.pem -o StrictHostKeyChecking=no ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com 'cd /home/Travis && ps -aux | grep java | grep travis | awk '{print \$2}' > test_kill.txt && sudo kill -9 \$(ps -aux | grep java | grep travis | awk '{print \$2}') && nohup java -jar *.jar > /dev/null 2>&1 &'
+  script: cd target && sudo scp -i ../anuj-ubuntu-keypair.pem  -o StrictHostKeyChecking=no -r *.jar ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com:/home/Travis && ssh -n -f -i ../anuj-ubuntu-keypair.pem -o StrictHostKeyChecking=no ubuntu@ec2-34-202-237-229.compute-1.amazonaws.com 'cd /home/Travis && ps -aux | grep java | grep travis | awk \'{print \$2}\' > test_kill.txt && sudo kill -9 \$(ps -aux | grep java | grep travis | awk \'{print \$2}\') && nohup java -jar *.jar > /dev/null 2>&1 &'
 - provider: s3
   skip_cleanup: true
   access_key_id: AKIAJOEUJHKNA3MPUZZA
