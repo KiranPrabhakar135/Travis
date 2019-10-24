@@ -27,4 +27,6 @@ deploy:
   local_dir: target   
   
 script: "./mvnw clean install"
-after_success: 
+notifications:
+  email:
+    - kprabhak@buffalo.edu
